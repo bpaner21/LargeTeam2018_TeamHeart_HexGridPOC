@@ -208,10 +208,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 6
   Height: 6
-  CellPrefab: {fileID: 114382679596337192, guid: d4d25e74414426942a388c37fe57c586,
+  CellPrefab: {fileID: 114850290714730776, guid: 4340a99cdf5ab2145996374e8290e3d1,
     type: 2}
   CellLabelPrefab: {fileID: 114625517058197864, guid: 12b152656f30b714bb9e3d50644f5e0c,
     type: 2}
+  gridCanvas: {fileID: 0}
+  hexMesh: {fileID: 0}
 --- !u!4 &313105177
 Transform:
   m_ObjectHideFlags: 0

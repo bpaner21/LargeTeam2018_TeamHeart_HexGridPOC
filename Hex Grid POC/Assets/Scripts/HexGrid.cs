@@ -36,6 +36,11 @@ public class HexGrid : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        hexMesh.Triangulate(cells);
+    }
+
     private void CreateCell(int x, int z, int i)
     {
         // Establish cell position in the grid
@@ -44,10 +49,12 @@ public class HexGrid : MonoBehaviour
         position.y = 0f;                                // to verify that cell generation is working properly
         position.z = z * (HexMetrics.OuterRadius * 1.5f);
     
-        // Instantiate the cell
+        
+        // Instantiate the cell 
         HexCell cell = cells[i] = Instantiate<HexCell>(CellPrefab);
         cell.transform.SetParent(transform, false);
         cell.transform.localPosition = position;
+        //*/
 
         // Create the label for the cell's coordinates
         Text label = Instantiate<Text>(CellLabelPrefab);
