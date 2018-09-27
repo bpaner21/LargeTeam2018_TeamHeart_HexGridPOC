@@ -14,11 +14,16 @@ public class HexGrid : MonoBehaviour
 
     public Text CellLabelPrefab;
 
+    [SerializeField]
     private Canvas gridCanvas;
+
+    [SerializeField]
+    private HexMesh hexMesh;
 
     private void Awake()
     {
         gridCanvas = GetComponentInChildren<Canvas>();
+        hexMesh = GetComponentInChildren<HexMesh>();
 
         cells = new HexCell[Height * Width];
 
