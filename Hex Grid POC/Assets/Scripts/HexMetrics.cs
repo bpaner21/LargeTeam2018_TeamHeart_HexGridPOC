@@ -5,7 +5,7 @@ using UnityEngine;
 public static class HexMetrics
 {
     // The distance from the center of a hexagonal cell to a corner
-    public const float OuterRadius = 10f;
+    public const float OuterRadius = 5f;
 
     // The shortest distance from the center of a hexagonal cell to an edge
     public const float InnerRadius = OuterRadius * 0.86602540378f;
@@ -20,6 +20,7 @@ public static class HexMetrics
     //
     public static Vector3[] corners =
     {
+        new Vector3(-HalfOuterRadius, 0f, InnerRadius),
         new Vector3(HalfOuterRadius, 0f, InnerRadius),
         new Vector3(OuterRadius, 0f, 0f),
         new Vector3(HalfOuterRadius, 0f, -InnerRadius),

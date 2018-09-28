@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HexGrid : MonoBehaviour
 {
-    public int Width = 6;
+    public int Width = 12;
     public int Height = 6;
 
     public HexCell CellPrefab;
@@ -19,6 +19,9 @@ public class HexGrid : MonoBehaviour
 
     [SerializeField]
     private HexMesh hexMesh;
+
+    [SerializeField]
+    private float gridOffset = 0.2f;
 
     private void Awake()
     {
@@ -45,11 +48,13 @@ public class HexGrid : MonoBehaviour
     {
         // Establish cell position in the grid
         Vector3 position;
-        position.x = (x + (z * 0.5f) - (z / 2)) * (HexMetrics.InnerRadius * 2f); // multiplier are a potentially temporary offset 
-        position.y = 0f;                                // to verify that cell generation is working properly
-        position.z = z * (HexMetrics.OuterRadius * 1.5f);
-    
-        
+        //position.x = (x + (z * 0.5f) - (z / 2.0)) * (HexMetrics.InnerRadius * 2f);
+        position.x = x * (HexMetrics.OuterRadius * (1.5f + gridOffset));
+        position.y = 0f;
+        //position.z = z * (HexMetrics.OuterRadius * 1.5f);
+        position.z = (z + (x * 0.5f) - (x / 2)) * (HexMetrics.InnerRadius * (2.0f + gridOffset));
+
+
         // Instantiate the cell 
         HexCell cell = cells[i] = Instantiate<HexCell>(CellPrefab);
         cell.transform.SetParent(transform, false);
